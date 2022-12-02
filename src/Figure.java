@@ -16,12 +16,11 @@ public class Figure {
     }
 
     public float getFigureArea(){
-        if (figureType.equals("square"))
-            return squareSide*squareSide;
-        else if (figureType.equals("circle"))
-            return (float) (Math.PI*circleRadius*circleRadius);
-        else
-            throw new RuntimeException("Unknown Figure");
+        return switch (figureType) {
+            case "square" -> squareSide * squareSide;
+            case "circle" -> (float) (Math.PI * circleRadius * circleRadius);
+            default -> throw new RuntimeException("Unknown Figure");
+        };
     }
 
 }
